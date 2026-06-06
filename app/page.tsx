@@ -64,7 +64,7 @@ function WidgetPreview({ verified }: { verified: boolean }) {
           <CheckCircle2 className="w-4 h-4 text-white" />
         </div>
         <div>
-          <p className="text-sm font-semibold text-[#1D9E75]">KYC erified</p>
+          <p className="text-sm font-semibold text-[#1D9E75]">KYC verified</p>
           <p className="text-xs text-[#1D9E75]/70 font-mono-addr">{wallet.slice(0, 8)}...{wallet.slice(-6)}</p>
         </div>
         <Shield className="w-4 h-4 text-[#1D9E75] opacity-60 ml-auto shrink-0" />
