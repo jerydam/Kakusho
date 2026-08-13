@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
   let incoming: FormData;
   try {
     incoming = await req.formData();
+    console.log('[upload-doc] formData keys:', Array.from(incoming.keys()));
   } catch (e) {
     console.error('[upload-doc] formData parse failed:', e);
     return NextResponse.json({ error: 'Invalid form data' }, { status: 400 });
