@@ -107,7 +107,8 @@ export function SelfieUpload({ sessionId, token, onComplete }: SelfieUploadProps
         const px = Math.floor(cx + r * Math.cos(a));
         const py = Math.floor(cy + r * Math.sin(a));
         if (px < 0 || px >= canvas.width || py < 0 || py >= canvas.height) continue;
-        const [R, G, B] = ctx.getImageData(px, py, 1, 1).data;
+        const data = ctx.getImageData(px, py, 1, 1).data;
+        const R = data[0], G = data[1], B = data[2];
         const brightness = (R + G + B) / 3;
         if (brightness > 25 && brightness < 250) matched++;
         total++;
@@ -115,7 +116,6 @@ export function SelfieUpload({ sessionId, token, onComplete }: SelfieUploadProps
     }
     return total > 0 && matched / total > 0.40;
   }, []);
-
   // ─── Animation loop ──────────────────────────────────────────────────────────
   useEffect(() => {
     if (phase !== 'camera') return;
